@@ -8,7 +8,7 @@ public record DatosListadoComprobante(
 ) {
     public DatosListadoComprobante(Comprobante comprobante) {
         this(
-                comprobante.getId(),
+                comprobante.getId_comprobante(),
                 comprobante.getFecha().toString(),
                 comprobante.getTotal(),
                 comprobante.getUsuario().getUsuario()

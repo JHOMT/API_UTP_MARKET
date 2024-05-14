@@ -11,8 +11,8 @@ public record DatosListadoDetalleCompra(
 ) {
     public DatosListadoDetalleCompra(DetalleCompra detalleCompra) {
         this(
-                detalleCompra.getId(),
-                detalleCompra.getComprobante().getId(),
+                detalleCompra.getId_detalle(),
+                detalleCompra.getComprobante().getId_comprobante(),
                 detalleCompra.getProduct().getId(),
                 detalleCompra.getCantidad(),
                 detalleCompra.getPrecio(),

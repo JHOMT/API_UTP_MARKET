@@ -15,7 +15,7 @@ import utp.edu.pe.api_utp_market.Domain.Product.Product;
 public class DetalleCompra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_detalle;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_comprobante")
@@ -33,9 +33,11 @@ public class DetalleCompra {
     private Boolean estado_entrega;
     private Boolean estado_pago;
 
+
+
     public DetalleCompra(DatosActualizarDetalleCompra datos) {
         if (datos.id_detalle() != null) {
-            this.id = datos.id_detalle();
+            this.id_detalle = datos.id_detalle();
         }
         if (datos.id_comprobante() != null) {
             this.comprobante = new Comprobante(datos.id_comprobante());

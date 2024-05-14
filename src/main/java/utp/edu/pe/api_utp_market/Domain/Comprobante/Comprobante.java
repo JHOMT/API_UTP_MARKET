@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class Comprobante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_comprobante;
     private LocalDate fecha;
     private Double total;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -26,11 +26,12 @@ public class Comprobante {
     public Comprobante(DatosRegistroComprobante datos) {
         this.fecha = datos.fecha();
         this.total = datos.total();
+        this.usuario = new Usuario(datos.id_usuario());
     }
 
     public Comprobante(DatosActualizarComprobante datos) {
         if (datos.id() != 0){
-            this.id = datos.id();
+            this.id_comprobante = datos.id();
         }
         if (datos.fecha() != null){
             this.fecha = datos.fecha();
@@ -44,6 +45,6 @@ public class Comprobante {
     }
 
     public Comprobante(Long id) {
-        this.id = id;
+        this.id_comprobante = id;
     }
 }

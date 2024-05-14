@@ -36,6 +36,7 @@ public class Product {
         this.stock = datos.stock();
         this.coin = datos.coin();
         this.price = datos.price();
+        this.category = new Category(datos.id_category());
     }
 
     public Product(DatosActualizarProduct datos) {
