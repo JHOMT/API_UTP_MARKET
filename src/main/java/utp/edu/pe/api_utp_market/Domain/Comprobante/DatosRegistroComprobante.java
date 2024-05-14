@@ -8,5 +8,5 @@ public record DatosRegistroComprobante(
         @NotNull LocalDate fecha,
         @NotNull Double total,
         @NotNull Long id_usuario
-) {
+){
 }

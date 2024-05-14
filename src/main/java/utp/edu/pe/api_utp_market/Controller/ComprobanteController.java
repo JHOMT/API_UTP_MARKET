@@ -19,7 +19,7 @@ public class ComprobanteController {
     private ComprobanteRepository comprobanteRepository;
 
     @PostMapping
-    public ResponseEntity<DatosListadoComprobante> newComprobante(@RequestBody @Valid DatosRegistroComprobante datos){
+    public ResponseEntity<DatosListadoComprobante> nuevoComprobante(@RequestBody @Valid DatosRegistroComprobante datos) {
         Comprobante newComprobante = new Comprobante(datos);
         comprobanteRepository.save(newComprobante);
         Comprobante comprobante = comprobanteRepository.findById(newComprobante.getId_comprobante()).get();

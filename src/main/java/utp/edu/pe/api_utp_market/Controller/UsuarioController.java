@@ -8,6 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import utp.edu.pe.api_utp_market.Domain.Usuario.*;
+import utp.edu.pe.api_utp_market.Domain.Usuario.DatosListadoUsuario;
+import utp.edu.pe.api_utp_market.Domain.Usuario.DatosRegistroUsuario;
+import utp.edu.pe.api_utp_market.Domain.Usuario.Usuario;
+import utp.edu.pe.api_utp_market.Domain.Usuario.UsuarioRepository;
 
 import java.util.List;
 
@@ -25,7 +29,8 @@ public class UsuarioController {
         var hashedPassword = passwordEncoder.encode(password);
         Usuario usuario = new Usuario(datos);
         usuario.setPassword(hashedPassword);
-        usuarioRepository.save(usuario);
+        Usuario usuarioNuevo = new Usuario(datos);
+        usuarioRepository.save(usuarioNuevo);
         return ResponseEntity.ok("Usuario registrado correctamente");
     }
 
@@ -56,7 +61,8 @@ public class UsuarioController {
             var hashedPassword = passwordEncoder.encode(datos.password());
             usuario.setPassword(hashedPassword);
         }
-        usuarioRepository.save(usuario);
+        Usuario user = new Usuario(datos);
+        usuarioRepository.save(user);
         return ResponseEntity.ok("Usuario actualizado correctamente");
     }
     

@@ -29,6 +29,8 @@ public class DetalleCompraService {
         detalleCompra.setPrecio(datos.precio());
         detalleCompra.setEstado_entrega(datos.estado_entrega());
         detalleCompra.setEstado_pago(datos.estado_pago());
+        detalleCompra.setCantidad(datos.cantidad());
+        detalleCompra.setPrecio(datos.precio());
         detalleCompra.setProduct(productRepository.findById(datos.id_producto()).get());
         detalleCompraRepository.save(detalleCompra);
     }
