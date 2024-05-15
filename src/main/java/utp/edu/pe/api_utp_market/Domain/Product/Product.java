@@ -18,13 +18,14 @@ public class Product {
 
     private String name;
     private String description;
-    private int stock;
     private Double coin;
     private Double price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_category")
     private Category category;
+
+    private int stock;
 
     public Product(Long id) {
         this.id = id;

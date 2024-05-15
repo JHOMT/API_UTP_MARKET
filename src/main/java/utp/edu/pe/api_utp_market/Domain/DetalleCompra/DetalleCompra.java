@@ -16,7 +16,6 @@ public class DetalleCompra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_detalle;
-    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_comprobante")
@@ -37,28 +36,24 @@ public class DetalleCompra {
     public DetalleCompra(DatosActualizarDetalleCompra datos) {
         if (datos.id_detalle() != null) {
             this.id_detalle = datos.id_detalle();
-            if (datos.id_detalle() != null) {
-                this.id = datos.id_detalle();
-            }
-            if (datos.id_comprobante() != null) {
-                this.comprobante = new Comprobante(datos.id_comprobante());
-            }
-            if (datos.id_product() != null) {
-                this.product = new Product(datos.id_product());
-            }
-            if (datos.cantidad() > 0) {
-                this.cantidad = datos.cantidad();
-            }
-            if (datos.precio() != null) {
-                this.precio = datos.precio();
-            }
-            if (datos.estado_entrega() != null) {
-                this.estado_entrega = datos.estado_entrega();
-            }
-            if (datos.estado_pago() != null) {
-                this.estado_pago = datos.estado_pago();
-            }
-
+        }
+        if (datos.id_comprobante() != null) {
+            this.comprobante = new Comprobante(datos.id_comprobante());
+        }
+        if (datos.id_product() != null) {
+            this.product = new Product(datos.id_product());
+        }
+        if (datos.cantidad() > 0) {
+            this.cantidad = datos.cantidad();
+        }
+        if (datos.precio() != null) {
+            this.precio = datos.precio();
+        }
+        if (datos.estado_entrega() != null) {
+            this.estado_entrega = datos.estado_entrega();
+        }
+        if (datos.estado_pago() != null) {
+            this.estado_pago = datos.estado_pago();
         }
     }
 }
